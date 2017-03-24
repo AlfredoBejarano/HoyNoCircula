@@ -1,0 +1,44 @@
+package com.alfredobejarano.hoynocircula.utils;
+
+import android.support.annotation.NonNull;
+import android.util.Log;
+
+import com.alfredobejarano.hoynocircula.R;
+import com.alfredobejarano.hoynocircula.dto.Dia;
+
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
+
+/**
+ * Created by Alfredo on 24/03/2017.
+ */
+
+public class DiaUtils {
+    public DiaUtils() { /* codigo generado automaticamente */ }
+
+    public Dia getToday() throws IOException {
+        Document document = new Scrapper().scrapURL(Scrapper.GOB_URL);
+
+        Dia dia =  new Dia();
+
+        dia.setTitle(document.getElementsByClass("today").attr("title"));
+        dia.setColor(getDayColor(document.getElementsByClass("today").attr("class")));
+
+        return dia;
+    }
+
+    public int getDayColor(@NonNull String htmlClass) {
+        if(htmlClass.contains("mon")) {
+            return R.color.mon;
+        } else if(htmlClass.contains("tue")) {
+            return R.color.tue;
+        } else if(htmlClass.contains("thu")) {
+            return R.color.thu;
+        } else if(htmlClass.contains("fri")) {
+            return R.color.fri;
+        } else {
+            return R.color.wed;
+        }
+    }
+}
