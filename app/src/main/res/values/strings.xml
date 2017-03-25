@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Hoynocircula</string>
+    <string name="app_name">Hoy no circula</string>
+    <string name="hoy_no_circulan">Hoy no circulan:</string>
+    <string name="cargando_datos">Cargando Datos</string>
 </resources>

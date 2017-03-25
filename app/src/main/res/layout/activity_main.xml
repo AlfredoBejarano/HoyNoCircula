@@ -1,34 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context="com.alfredobejarano.hoynocircula.view.MainActivity">
 
     <TextView
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintVertical_bias="0.502" />
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/hoy_no_circulan"
+        android:textSize="24dp"/>
 
-    <ImageView
-        android:id="@+id/engomado"
-        android:src="@drawable/ic_engomado"
-        android:layout_width="wrap_content"
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/loading_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test"
-        app:layout_constraintLeft_toLeftOf="@+id/test"
-        app:layout_constraintHorizontal_bias="0.075" />
+        android:gravity="center"
+        android:text="@string/cargando_datos"
+        android:textSize="24dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/placa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_placa"
+        android:padding="8dp"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/engomado"
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/hologramas"
+            android:layout_marginRight="8dp"
+            android:background="@color/mon"
+            android:src="@drawable/ic_engomado" />
+
+        <TextView
+            android:id="@+id/terminaciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/engomado"
+            android:gravity="center"
+            android:text="Terminaciones: 0,0"
+            android:textSize="32dp" />
+
+        <TextView
+            android:id="@+id/hologramas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/terminaciones"
+            android:layout_toRightOf="@id/engomado"
+            android:gravity="center"
+            android:text="hologramas"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
